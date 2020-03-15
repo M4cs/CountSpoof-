@@ -27,7 +27,6 @@ public class CSPSpoofer {
     public void updateCount(){
         System.out.println("Current Mode: " + configManager.getCurrentMode());
         if (configManager.getCurrentMode().equalsIgnoreCase("realistic")){
-            System.out.println("In Realistic");
             Random ran = new Random();
             int coinFlip = ran.nextInt(100);
             int countChange = ThreadLocalRandom.current().nextInt(configManager.getMinimumRealisticThreshold(), configManager.getMaximumRealisticThreshold() + 1);
@@ -40,13 +39,10 @@ public class CSPSpoofer {
                 currentCount = configManager.minimumRealisticNumber;
             }
         } else if (configManager.getCurrentMode().equalsIgnoreCase("random")){
-            System.out.println("In Random");
-            System.out.println(ThreadLocalRandom.current().nextInt(configManager.getMinimumRandomNumber(), configManager.getMaximumRandomNumber() + 1));
             currentCount = ThreadLocalRandom.current().nextInt(configManager.getMinimumRandomNumber(), configManager.getMaximumRandomNumber() + 1);
         } else if (configManager.getCurrentMode().equalsIgnoreCase("static")){
             currentCount = configManager.getStaticCountNumber();
         }
-        System.out.println("The Current Count:" + currentCount);
     }
 
     public int getCurrentThreshold() {

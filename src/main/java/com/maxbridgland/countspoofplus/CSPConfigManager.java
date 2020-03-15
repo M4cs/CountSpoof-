@@ -1,16 +1,14 @@
 package com.maxbridgland.countspoofplus;
 
-import org.apache.commons.io.FileUtils;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
-import java.util.Objects;
 
 public class CSPConfigManager {
 
+    CountSpoofPlusPlugin plugin;
     FileConfiguration config;
     int packetThreshold = -1;
     String currentMode;
@@ -25,8 +23,10 @@ public class CSPConfigManager {
     List<String> image64s;
     List<String> playerList;
     CSPLogger logger;
+    boolean enabled;
 
     public CSPConfigManager(CountSpoofPlusPlugin plugin){
+        this.plugin = plugin;
         this.config = plugin.getConfig();
         this.logger = plugin.logger;
         this.image64s = new ArrayList<>();
@@ -38,7 +38,11 @@ public class CSPConfigManager {
         if (!configFile.exists()){
             plugin.saveDefaultConfig();
         }
-
+        int configVersion = config.getInt("config_verison");
+        if (configVersion != 1){
+            logger.warning("Found Old or Missing Config File! Updating to New One. THIS WILL RESET YOUR CONFIGURATION!");
+            plugin.saveDefaultConfig();
+        }
         packetThreshold = config.getInt("settings.packetThreshold");
         staticCountNumber = config.getInt("settings.staticMode.playerCount");
         minimumRandomNumber = config.getInt("settings.randomMode.minimumCount");
@@ -50,8 +54,107 @@ public class CSPConfigManager {
         if (currentMode == null){
             currentMode = "random";
         }
+        enabled = config.getBoolean("settings.enabled");
         playerListEnabled = config.getBoolean("settings.customPlayerList.enabled");
         playerList = config.getStringList("settings.customPlayerList.messages");
+    }
+
+    public void flipEnabled(){
+        enabled = !enabled;
+        config.set("settings.enabled", enabled);
+        plugin.saveConfig();
+    }
+
+    public void addToMinNumber(String type){
+        switch (type){
+            case "random":
+                minimumRandomNumber += 1;
+                if (minimumRandomNumber > maximumRandomNumber){
+                    minimumRandomNumber -= 1;
+                }
+                config.set("settings.randomMode.minimumCount", minimumRandomNumber);
+                plugin.saveConfig();
+                break;
+            case "realistic":
+                minimumRealisticThreshold += 1;
+                if (minimumRealisticThreshold > maximumRealisticThreshold){
+                    minimumRealisticThreshold -= 1;
+                }
+                config.set("settings.realisticMode.minimumChange", minimumRealisticThreshold);
+                plugin.saveConfig();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void subFromMinNumber(String type){
+        switch (type){
+            case "random":
+                minimumRandomNumber -= 1;
+                config.set("settings.randomMode.minimumCount", minimumRandomNumber);
+                plugin.saveConfig();
+                break;
+            case "realistic":
+                minimumRealisticThreshold -= 1;
+                config.set("settings.realisticMode.minimumChange", minimumRealisticThreshold);
+                plugin.saveConfig();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void addToMaxNumber(String type){
+        switch (type){
+            case "random":
+                maximumRandomNumber += 1;
+                config.set("settings.randomMode.maximumCount", minimumRandomNumber);
+                plugin.saveConfig();
+                break;
+            case "realistic":
+                maximumRealisticThreshold += 1;
+                config.set("settings.realisticMode.maximumChange", minimumRealisticThreshold);
+                plugin.saveConfig();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void subFromMaxNumber(String type){
+        switch (type){
+            case "random":
+                maximumRandomNumber -= 1;
+                if (minimumRandomNumber > maximumRandomNumber){
+                    maximumRandomNumber += 1;
+                }
+                config.set("settings.randomMode.maximumCount", minimumRandomNumber);
+                plugin.saveConfig();
+                break;
+            case "realistic":
+                maximumRealisticThreshold -= 1;
+                if (minimumRealisticThreshold > maximumRealisticThreshold){
+                    maximumRealisticThreshold += 1;
+                }
+                config.set("settings.realisticMode.maximumChange", minimumRealisticThreshold);
+                plugin.saveConfig();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void subFromStatic(){
+        staticCountNumber -= 1;
+        config.set("settings.staticMode.playerCount", staticCountNumber);
+        plugin.saveConfig();
+    }
+
+    public void addToStatic(){
+        staticCountNumber += 1;
+        config.set("settings.staticMode.playerCount", staticCountNumber);
+        plugin.saveConfig();
     }
 
     public List<String> getPlayerList(){
@@ -91,6 +194,24 @@ public class CSPConfigManager {
     }
     public int getCurrentThreshold(){
         return currentThreshold;
+    }
+    public void setPlayerListDisabled(){
+        playerListEnabled = false;
+        config.set("settings.customPlayerList.enabled", false);
+        plugin.saveConfig();
+    }
+    public void setPlayerListEnabled(){
+        playerListEnabled = true;
+        config.set("settings.customPlayerList.enabled", true);
+        plugin.saveConfig();
+    }
+
+
+    public void setCurrentMode(String mode){
+        currentMode = mode;
+        config.set("settings.mode", mode);
+        plugin.saveConfig();
+        logger.info("Set Mode To: " + mode);
     }
 
 }

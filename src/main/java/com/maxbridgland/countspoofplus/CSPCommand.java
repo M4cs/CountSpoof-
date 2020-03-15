@@ -15,16 +15,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSPCommand implements CommandExecutor {
+
+    CSPConfigManager configManager;
+
+    public CSPCommand(CSPConfigManager configManager){
+        this.configManager = configManager;
+    }
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
         if (commandSender instanceof Player){
             Player player = (Player) commandSender;
-            Inventory cspMenu = Bukkit.getServer().createInventory(player, 9, "" + ChatColor.DARK_GREEN + "CountSpoof+ Menu");
-            cspMenu.setItem(3, createGuiItem(Material.BEACON, "" + ChatColor.AQUA + "Mode Settings", "" + ChatColor.DARK_AQUA + "Choose Your Spoofing Mode", "" + ChatColor.GREEN + "Options: Static, Random, Realistic, Hidden"));
-            cspMenu.setItem(5, createGuiItem(Material.ENCHANTED_BOOK, "" + ChatColor.AQUA + "Config Settings", "" + ChatColor.DARK_AQUA + "Change Configuration Settings", ""));
-            cspMenu.setItem(4, createGuiItem(Material.FEATHER, "" + ChatColor.AQUA + "Player List Settings", "" + ChatColor.DARK_AQUA + "Change Player List Messages", ""));
-            player.openInventory(cspMenu);
+            if (player.hasPermission("csp.menu") || player.isOp()){
+                Inventory cspMenu = Bukkit.getServer().createInventory(player, 9, "" + ChatColor.DARK_GREEN + "CountSpoof+ Menu");
+                cspMenu.setItem(3, createGuiItem(Material.BEACON, "" + ChatColor.AQUA + "Mode Settings", "" + ChatColor.DARK_AQUA + "Choose Your Spoofing Mode", "" + ChatColor.GREEN + "Options: Static, Random, Realistic, Hidden"));
+                cspMenu.setItem(5, createGuiItem(Material.ENCHANTED_BOOK, "" + ChatColor.AQUA + "Config Settings", "" + ChatColor.DARK_AQUA + "Change Configuration Settings", ""));
+                if (configManager.getPlayerListEnabled()){
+                    cspMenu.setItem(4, createGuiItem(Material.FEATHER, "" + ChatColor.AQUA + "Enable/Disable Player List", "" + ChatColor.DARK_AQUA + "Current Setting:", "" + ChatColor.GREEN + "Enabled"));
+                } else {
+                    cspMenu.setItem(4, createGuiItem(Material.FEATHER, "" + ChatColor.AQUA + "Enable/Disable Player List", "" + ChatColor.DARK_AQUA + "Current Setting:", "" + ChatColor.DARK_RED + "Disabled"));
+                }
+                player.openInventory(cspMenu);
+            }
         }
         return true;
     }

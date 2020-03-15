@@ -1,20 +1,40 @@
 # CountSpoofPlus 2.0.0 - Max Bridgland
 # Default Configuration File v1
 settings:
+  # Enable or Disable Spoofing (Requires Restart to unregister from ProtocolLib)
   enabled: true
+  # Mode To Spoof In. Options: random, static, realistic
   mode: random
+  # How many people to allow to ping until changing the number of players online
   packetThreshold: 5
+  # Realistic Mode. Uses randomization algorithm to give of the perception of legitmate player counts.
+  # Keep minimum change LESS THAN maximum change
+  # Make sure to keep the changes a low range
   realisticMode:
+    # Minimum players you can take or add to the player count on an update
     minimumChange: 3
+    # Maximum players you can take or add to the player count on an update
     maximumChange: 5
+    # Minimum players to display at all times
     minimumPlayers: 3
+  # Random Mode. Randomizes count between the two numbers
   randomMode:
+    # Must be LESS THAN maximum
     minimumCount: 5
+    # Must be MORE THAN minimum
     maximumCount: 50
+  # Static Mode. Always display this player count
   staticMode:
+    # Player Count
     playerCount: 45
+  # Custom Player List. Add Custom Messages to the Player List when people Hover over it
   customPlayerList:
+    # Enable Player List
     enabled: true
+    # Custom Messages, Unlimited Size and Count. Accepts & for Colors
     messages:
       - "&3>> Playerlist Hidden <<"
       - "&4>> by CountSpoof+ <<"
+
+# Dont Touch This!!!!!!
+config_version: 1

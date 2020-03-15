@@ -9,3 +9,7 @@ commands:
   csp:
     usage: "/<command>"
     description: "GUI Control Panel for CountSpoofPlus"
+permissions:
+  csp.menu:
+    description: "Gives Access to GUI Control Panel"
+    default: op
