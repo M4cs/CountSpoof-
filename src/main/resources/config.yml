@@ -1,0 +1,20 @@
+# CountSpoofPlus 2.0.0 - Max Bridgland
+# Default Configuration File v1
+settings:
+  enabled: true
+  mode: random
+  packetThreshold: 5
+  realisticMode:
+    minimumChange: 3
+    maximumChange: 5
+    minimumPlayers: 3
+  randomMode:
+    minimumCount: 5
+    maximumCount: 50
+  staticMode:
+    playerCount: 45
+  customPlayerList:
+    enabled: true
+    messages:
+      - "&3>> Playerlist Hidden <<"
+      - "&4>> by CountSpoof+ <<"

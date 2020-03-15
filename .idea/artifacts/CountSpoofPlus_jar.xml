@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CountSpoofPlus:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CountSpoofPlus_jar</output-path>
+    <root id="archive" name="CountSpoofPlus-Rewrite.jar">
+      <element id="module-output" name="CountSpoofPlus-Rewrite" />
+    </root>
+  </artifact>
+</component>

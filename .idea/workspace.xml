@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4e9ca29d-3dc5-4551-9882-b35557456081" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Z6BYaHp0wXngCACQXC2yqPGUPq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e9ca29d-3dc5-4551-9882-b35557456081" name="Default Changelist" comment="" />
+      <created>1584149711205</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584149711205</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="21" y="41" width="811" height="988" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1584220511916">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="21" y="41" width="811" height="988" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1584220511916" />
+    <state x="21" y="41" width="811" height="988" key="#com.intellij.ide.util.MemberChooser" timestamp="1584218833030">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="21" y="41" width="811" height="988" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1584218833030" />
+    <state x="21" y="41" width="811" height="988" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1584211401617">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="21" y="41" width="811" height="988" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1584211401617" />
+    <state width="1596" height="267" key="GridCell.Tab.0.bottom" timestamp="1584221236476">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1596" height="267" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1584221236476" />
+    <state width="1596" height="267" key="GridCell.Tab.0.center" timestamp="1584221236475">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1596" height="267" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1584221236475" />
+    <state width="1596" height="267" key="GridCell.Tab.0.left" timestamp="1584221236475">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1596" height="267" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1584221236475" />
+    <state width="1596" height="267" key="GridCell.Tab.0.right" timestamp="1584221236476">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1596" height="267" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1584221236476" />
+    <state x="21" y="41" width="811" height="988" key="SettingsEditor" timestamp="1584212073287">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="21" y="41" width="811" height="988" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1584212073287" />
+    <state x="505" y="259" width="670" height="676" key="search.everywhere.popup" timestamp="1584211899590">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="259" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1584211899590" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/maxbridgland/countspoofplus/CountSpoofPlusPlugin.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

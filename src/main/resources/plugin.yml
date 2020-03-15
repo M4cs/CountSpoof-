@@ -1,0 +1,11 @@
+main: com.maxbridgland.countspoofplus.CountSpoofPlusPlugin
+name: CountSpoofPlus
+version: 2.0.0
+depend:
+  - ProtocolLib
+api-version: "legacy"
+description: "Advanced player spoofer for Spigot/Paper"
+commands:
+  csp:
+    usage: "/<command>"
+    description: "GUI Control Panel for CountSpoofPlus"
